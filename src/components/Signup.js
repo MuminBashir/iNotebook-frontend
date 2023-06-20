@@ -20,26 +20,33 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: Credentials.name,
-        email: Credentials.email,
-        password: Credentials.password,
-      }),
-    });
-
-    const json = await response.json();
-    if (json.success) {
-      //redirect and save authtoken
-      localStorage.setItem("token", json.authToken);
-      navigate("/");
-      showAlert("Signed in successfully", "success");
+    if (Credentials.password !== Credentials.cpassword) {
+      showAlert("Password not matched", "danger");
     } else {
-      showAlert(json.error, "danger");
+      const response = await fetch(
+        `http://localhost:5000/api/auth/createuser`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: Credentials.name,
+            email: Credentials.email,
+            password: Credentials.password,
+          }),
+        }
+      );
+
+      const json = await response.json();
+      if (json.success) {
+        //redirect and save authtoken
+        localStorage.setItem("token", json.authToken);
+        navigate("/");
+        showAlert("Signed in successfully", "success");
+      } else {
+        showAlert(json.error, "danger");
+      }
     }
   };
   return (
