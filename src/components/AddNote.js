@@ -26,7 +26,7 @@ export default function AddNote() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container" style={{ marginTop: "125px" }}>
       <h2>Add a note:</h2>
       <form>
         <div className="mb-3">
@@ -42,6 +42,11 @@ export default function AddNote() {
             placeholder="Add title"
             value={note.title}
           />
+          {note.title.length === 0 && (
+            <div id="emailHelp" className="form-text">
+              ( Title cannot be empty )
+            </div>
+          )}
         </div>
         <div className="mb-3">
           <label htmlFor="description" className="form-label">
@@ -56,6 +61,11 @@ export default function AddNote() {
             placeholder="Add description"
             value={note.description}
           />
+          {note.description.length === 0 && (
+            <div id="emailHelp" className="form-text">
+              ( Description cannot be empty )
+            </div>
+          )}
         </div>
         <div className="mb-3">
           <label htmlFor="tag" className="form-label">

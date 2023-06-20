@@ -1,9 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <nav
+      className="navbar fixed-top navbar-expand-lg bg-primary"
+      data-bs-theme="dark"
+    >
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           iNotebook
@@ -33,16 +36,12 @@ export default function Navbar() {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <input
-              className="form-control me-2 bg-light text-dark"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              
-            />
-            <button className="btn btn-outline-dark text-dark bg-light" type="submit">
-              Search
-            </button>
+            <Link className="btn btn-light mx-2" to="/signup" role="button">
+              Sign Up
+            </Link>
+            <Link className="btn btn-light mx-2" to="/login" role="button">
+              Log In
+            </Link>
           </form>
         </div>
       </div>

@@ -22,11 +22,7 @@ export default function Notes() {
 
   const handleUpdateNote = (e) => {
     e.preventDefault();
-    if (note.etag.length === 0) {
-      editNote(note.id, note.etitle, note.edescription);
-    } else {
-      editNote(note.id, note.etitle, note.edescription, note.etag);
-    }
+    editNote(note.id, note.etitle, note.edescription, note.etag);
     refClose.current.click();
   };
 
@@ -93,6 +89,11 @@ export default function Notes() {
                     placeholder="Add title"
                     value={note.etitle}
                   />
+                  {note.etitle.length === 0 && (
+                    <div id="emailHelp" className="form-text">
+                      ( Title cannot be empty )
+                    </div>
+                  )}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="edescription" className="form-label">
@@ -107,6 +108,11 @@ export default function Notes() {
                     placeholder="Add description"
                     value={note.edescription}
                   />
+                  {note.edescription.length === 0 && (
+                    <div id="emailHelp" className="form-text">
+                      ( Description cannot be empty )
+                    </div>
+                  )}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="etag" className="form-label">

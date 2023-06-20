@@ -17,7 +17,7 @@ const NoteState = (props) => {
     });
 
     const json = await response.json();
-    setNotes(json);
+    setNotes(json.notes);
   };
 
   // add a note
@@ -33,7 +33,7 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
     const note = await response.json();
-    setNotes(notes.concat(note));
+    setNotes(notes.concat(note.notes));
   };
 
   // delete a note
