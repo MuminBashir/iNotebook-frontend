@@ -37,7 +37,7 @@ export default function Login() {
   };
   return (
     <div className="container" style={{ marginTop: "125px" }}>
-      <h2 className="text-center">Login</h2>
+      <h2 className="text-center mb-4">Login with your iNotebook account</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">

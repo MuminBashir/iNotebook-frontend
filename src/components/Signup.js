@@ -33,7 +33,6 @@ export default function Signup() {
     });
 
     const json = await response.json();
-    console.log(json);
     if (json.success) {
       //redirect and save authtoken
       localStorage.setItem("token", json.authToken);
@@ -45,7 +44,7 @@ export default function Signup() {
   };
   return (
     <div className="container" style={{ marginTop: "125px" }}>
-      <h2 className="text-center">Sign Up</h2>
+      <h2 className="text-center mb-4">Create an account to use iNotebook</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
