@@ -4,7 +4,7 @@ import { useState } from "react";
 const NoteState = (props) => {
   const initialNotes = [
     {
-      _id: "64908ecefc4f9aad0b74c82c",
+      _id: "64908ecefc4f9aad0b74c82ca",
       user: "648f18f134bec0f99c0a49de",
       title: "Go shopping",
       description: "shop at d-mart in evening",
@@ -13,7 +13,7 @@ const NoteState = (props) => {
       __v: 0,
     },
     {
-      _id: "64908eedfc4f9aad0b74c82e",
+      _id: "64908eedfc4f9aad0b74c82ea",
       user: "648f18f134bec0f99c0a49de",
       title: "Sleep time",
       description: "Sleep at 10pm",
@@ -40,7 +40,7 @@ const NoteState = (props) => {
       __v: 0,
     },
     {
-      _id: "64908ecefc4f9aad0b74c82c",
+      _id: "64908ecefc4f9aad0b74c82cc",
       user: "648f18f134bec0f99c0a49de",
       title: "Go shopping",
       description: "shop at d-mart in evening",
@@ -49,7 +49,7 @@ const NoteState = (props) => {
       __v: 0,
     },
     {
-      _id: "64908eedfc4f9aad0b74c82e",
+      _id: "64908eedfc4f9aad0b74c82ec",
       user: "648f18f134bec0f99c0a49de",
       title: "Sleep time",
       description: "Sleep at 10pm",
