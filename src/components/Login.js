@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import alertContext from "../context/alert/alertContext";
+
 export default function Login() {
+  const context = useContext(alertContext);
+  const { showAlert } = context;
   let navigate = useNavigate();
   const [Credentials, setCredentials] = useState({ email: "", password: "" });
 
@@ -22,11 +26,13 @@ export default function Login() {
     });
 
     const json = await response.json();
-    console.log(json);
     if (json.success) {
       //redirect and save authtoken
       localStorage.setItem("token", json.authToken);
       navigate("/");
+      showAlert("Logged in successfully", "success");
+    } else {
+      showAlert(json.error, "danger");
     }
   };
   return (

@@ -1,8 +1,13 @@
 import NoteContext from "./noteContext";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import alertContext from "../alert/alertContext";
 
 const NoteState = (props) => {
   const host = "http://localhost:5000";
+
+  const context = useContext(alertContext);
+  const { showAlert } = context;
+
   const [notes, setNotes] = useState([]);
 
   //get Notes
@@ -34,6 +39,11 @@ const NoteState = (props) => {
     });
     const note = await response.json();
     setNotes(notes.concat(note.notes));
+    if (note.success) {
+      showAlert("Note added successfully", "success");
+    } else {
+      showAlert("Failed to add the note", "danger");
+    }
   };
 
   // delete a note
@@ -52,6 +62,11 @@ const NoteState = (props) => {
       return note._id !== id;
     });
     setNotes(newNotes);
+    if (json.success) {
+      showAlert("Note deleted successfully", "success");
+    } else {
+      showAlert(json.error, "danger");
+    }
   };
 
   // edit a note
@@ -78,6 +93,12 @@ const NoteState = (props) => {
       }
     }
     setNotes(newNotes);
+
+    if (note.success) {
+      showAlert("Note updated successfully", "success");
+    } else {
+      showAlert(note.error, "danger");
+    }
   };
 
   return (

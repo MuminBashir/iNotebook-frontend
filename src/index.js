@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import NoteState from "./context/notes/NoteState";
+import AlertState from "./context/alert/AlertState";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+      <AlertState>
     <NoteState>
-      <App />
+        <App />
     </NoteState>
+      </AlertState>
   </React.StrictMode>
 );
 

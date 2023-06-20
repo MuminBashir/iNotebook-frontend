@@ -6,13 +6,17 @@ import About from "./components/About";
 import Alert from "./components/Alert";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import { useContext } from "react";
+import alertContext from "./context/alert/alertContext";
 
 function App() {
+  const context = useContext(alertContext);
+  const { alert } = context;
   return (
     <>
       <BrowserRouter>
         <Navbar />
-        <Alert msg="hello there!" />
+        <Alert alert={alert} />
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
